@@ -1,0 +1,74 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{12pt}{8pt}
+
+\begin{document}
+\begin{center}
+    {\Huge \textbf{Iniyan Andrews Joseph}} \\ \vspace{4pt}
+    {\textit{M.Sc. Computer Science (Data Science)}} \\ \vspace{4pt}
+    \href{mailto:iniyandrews@gmail.com}{iniyandrews@gmail.com} \quad|\quad
+    \href{https://www.linkedin.com/in/iniyandrews}{LinkedIn} \quad|\quad
+    \href{https://github.com/Joeytribb}{GitHub: Joeytribb} \quad|\quad
+    Calicut, India
+\end{center}
+
+\section*{RESEARCH INTERESTS}
+\textbf{Core Interests:} Quantitative Trading Systems, Market Microstructure, Algorithmic Execution, Monte Carlo Risk Modeling, Supervised Learning for Time-Series, and Ensemble Feature Selection.
+
+\section*{EDUCATION}
+\noindent \textbf{NIELIT, Calicut} \hfill \textit{Calicut, India} \\
+\textit{M.Sc. in Computer Science (Specialization in Data Science)} \hfill \textit{Expected Completion: May 2026}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
+    \item \textbf{Current CGPA:} 8.55/10.0
+    \item \textbf{Relevant Coursework:} Mathematics for Machine Learning, Advanced Statistical Techniques, Probability \& Statistics, Data Analytics, Stochastic Processes.
+\end{itemize}
+\vspace{6pt}
+\noindent \textbf{The American College, Madurai} \hfill \textit{Madurai, India} \\
+\textit{B.Sc. in Computer Science} \hfill \textit{2021 -- 2024}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
+    \item \textbf{CGPA:} 7.4/10.0
+\end{itemize}
+
+\section*{QUANTITATIVE RESEARCH \& TECHNICAL PROJECTS}
+
+\noindent \textbf{Systematic Trading Research \& Bias Auditing} \hfill \href{https://github.com/Joeytribb/systematic-trading-research}{\textit{View on GitHub}} \\
+\textit{Independent Quantitative Researcher} \hfill \textit{Python, pandas, scikit-learn}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
+    \item Developed a fully automated intraday mean-reversion algorithmic trading system targeting highly-leveraged crypto perpetual futures and Nifty 50/S\&P 500 index futures.
+    \item \textbf{Zero-Bias Engine:} Mathematically identified and eliminated 15 systemic backtest biases and 2 look-ahead bugs (including threshold contamination and limit-order execution gaps) to ensure institutional-grade out-of-sample realism.
+    \item \textbf{Execution Modeling:} Hardcoded strict market microstructure friction into the backtester, including worst-case wick fills, exchange maker/taker fees, and dynamic order-book slippage curves.
+    \item \textbf{Risk Management:} Applied Kelly Criterion approximations within a 50,000-path Monte Carlo engine to map the exact probability of ruin, formulating a two-stage risk-ratchet that compounded capital with a mathematically verified 0.02\% ruin risk.
+\end{itemize}
+\vspace{6pt}
+
+\noindent \textbf{Short-Term Stock Prediction: Supervised Learning (Project HOPE)} \hfill \href{https://github.com/Joeytribb/HOPE}{\textit{View on GitHub}} \\
+\textit{Lead Researcher} \hfill \textit{Python, Scikit-Learn, LSTM, TensorFlow}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
+    \item Conducted rigorous statistical analysis to identify S\&P 500 and Nifty 50 stocks primed for 1\% daily gains, framing the problem as a supervised learning classification task.
+    \item Built and evaluated robust feature engineering pipelines to process high-noise financial data, isolating predictive signals and discarding redundant features to prevent deep learning model collapse.
+    \item Demonstrated that variance-reducing, regularized linear models (190.65\% Return, 2.0 Sharpe Ratio) significantly outperformed complex LSTM models by avoiding overfitting on high-dimensional datasets.
+\end{itemize}
+\vspace{6pt}
+
+\noindent \textbf{High-Frequency Trading using Deep Machine Learning} \hfill \href{https://github.com/Joeytribb/Bithax-RL-trader}{\textit{View on GitHub}} \\
+\textit{Lead Researcher} \hfill \textit{Python, PyTorch, OpenAI Gym}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
+    \item Engineered an autonomous trading agent via Proximal Policy Optimization (PPO) that processed a highly complex 42-dimensional feature vector representing dynamic market states.
+    \item Addressed the curse of dimensionality by validating feature importance; utilized out-of-sample stress testing and look-ahead bias checks to ensure generalized, robust performance.
+    \item Achieved a Sharpe Ratio of 1.4 by optimizing statistical metrics across both bull and bear market regimes.
+\end{itemize}
+
+\section*{TECHNICAL SKILLS}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
+    \item \textbf{Financial Analytics:} Market Microstructure, Algorithmic Execution, Monte Carlo Simulation, Risk Management (Kelly Criterion, Sharpe, Drawdown), Dealing with Concept Drift.
+    \item \textbf{Data Science \& Stats:} Scikit-Learn, Pandas, NumPy, Matplotlib, Statistical Analysis, Feature Engineering.
+    \item \textbf{Machine Learning:} Supervised Learning, Feature Selection, Dimensionality Reduction, Reinforcement Learning (PPO, DQN), PyTorch, TensorFlow.
+    \item \textbf{Programming \& Tools:} Python (Advanced), C++, SQL, Git/GitHub, Docker, Linux, LaTeX.
+\end{itemize}
+
+\end{document}
