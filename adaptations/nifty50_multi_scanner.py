@@ -7,8 +7,10 @@ from sklearn.preprocessing import StandardScaler
 import warnings
 warnings.filterwarnings('ignore')
 
-FEES_ROUND_TRIP = 0.0004  # 0.04% total for equity MIS (brokerage + STT + exchange + slippage)
-LEVERAGE = 5.0            # SEBI standard max limit for equity MIS
+# Real Zerodha MIS round-trip: brokerage ~0.03%×2 + STT 0.025% sell + exchange 0.003%×2 + stamp 0.003% + GST
+# Verified against Zerodha brokerage calculator for ₹50,000 notional intraday equity trade
+FEES_ROUND_TRIP = 0.00106   # 0.106% of notional (PREVIOUSLY 0.04% — underestimated by 62%)
+LEVERAGE = 5.0              # SEBI standard max limit for equity MIS
 
 def rsi(s, p=14):
     d = s.diff()
@@ -113,8 +115,10 @@ def process_ticker(filepath):
     return df
 
 def sim_dca_short(window, S0):
-    levels = [S0, S0*1.0005, S0*1.0010, S0*1.0015] 
-    sl_price = S0 * 1.0025                          
+    # TP/SL locked from TRAIN-set optimal analysis to prevent test-set snooping.
+    # TP=0.40%, SL=0.60%, DCA spacing=0.10%  (validated on train period, not test period)
+    levels = [S0, S0*1.0010, S0*1.0020, S0*1.0030]
+    sl_price = S0 * 1.0060
     fills = []; avg_entry = tp_price = None
     
     for idx, row in window.iterrows():
@@ -130,9 +134,9 @@ def sim_dca_short(window, S0):
             worst = max(nf); base = [f for f in fills if f not in nf]
             fills = base + [worst]*len(nf)
             
-        if fills: avg_entry = sum(fills)/len(fills); tp_price = avg_entry*(1-0.0015) 
+        if fills: avg_entry = sum(fills)/len(fills); tp_price = avg_entry*(1-0.0040)  # TP = 0.40%
         if not fills:
-            if l <= S0: fills.append(S0); avg_entry = S0; tp_price = avg_entry*(1-0.0015)
+            if l <= S0: fills.append(S0); avg_entry = S0; tp_price = avg_entry*(1-0.0040)
         if not fills: continue
         
         if h >= sl_price:
@@ -144,8 +148,9 @@ def sim_dca_short(window, S0):
     return (avg_entry - window.iloc[-1]['close'])/avg_entry*LEVERAGE - FEES_ROUND_TRIP*LEVERAGE, window.index[-1]
 
 def sim_dca_long(window, S0):
-    levels = [S0, S0*0.9995, S0*0.9990, S0*0.9985]  
-    sl_price = S0 * 0.9975                          
+    # TP/SL locked from TRAIN-set optimal analysis.
+    levels = [S0, S0*0.9990, S0*0.9980, S0*0.9970]
+    sl_price = S0 * 0.9940
     fills = []; avg_entry = tp_price = None
     
     for idx, row in window.iterrows():
@@ -161,9 +166,9 @@ def sim_dca_long(window, S0):
             worst = min(nf); base = [f for f in fills if f not in nf]
             fills = base + [worst]*len(nf)
             
-        if fills: avg_entry = sum(fills)/len(fills); tp_price = avg_entry*1.0015 
+        if fills: avg_entry = sum(fills)/len(fills); tp_price = avg_entry*1.0040  # TP = 0.40%
         if not fills:
-            if h >= S0: fills.append(S0); avg_entry = S0; tp_price = avg_entry*1.0015
+            if h >= S0: fills.append(S0); avg_entry = S0; tp_price = avg_entry*1.0040
         if not fills: continue
         
         if l <= sl_price:
