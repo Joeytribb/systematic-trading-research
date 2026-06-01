@@ -1,0 +1,5 @@
+- `[x]` Fix MTF Data Leakage in `win_rate_optimizer.py` using `label='right'` and `closed='right'`.
+- `[x]` Re-run `win_rate_optimizer.py` to find the true, uninflated Win Rate.
+- `[x]` Fix Multi-Asset Chronology in `multi_asset_scanner.py` using hardcoded absolute dates.
+- `[x]` Re-run `multi_asset_scanner.py` over 6 months to find the true Signal Multiplier.
+- `[x]` Re-calculate Monte Carlo timeline and update `walkthrough.md`.
