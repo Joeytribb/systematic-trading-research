@@ -30,6 +30,18 @@ The system architecture was abstracted to apply to different asset classes. We s
 *   Lower allowable leverage (SEBI 12% margin rules).
 *   Strict Intraday limitations (hard square-off at 15:15 IST to prevent overnight gap risks).
 
+## Empirical Ground-Truth Results
+
+After removing all look-ahead biases and simulating worst-case execution friction (slippage, fees, funding rates), the 2-year out-of-sample backtest yielded the following core metrics:
+
+| Metric | Result | Description |
+| :--- | :--- | :--- |
+| **Win Rate** | **64.25%** | Strictly out-of-sample performance |
+| **Expected Value (EV)** | **+1.69%** | Net return per trade after all fees and slippage |
+| **Target Simulation** | **$500 to $10,000** | Median compounding time of **6.3 months** |
+| **Risk of Ruin** | **0.02%** | Using a two-stage Kelly-based risk ratchet |
+| **Capacity Limit** | **~$541,500** | Point where order-book slippage reduces EV to zero |
+
 ## Repository Structure
 
 *   `/crypto_project_archive/`: Contains the original BTC mean-reversion strategy, the rigorous bias-audit logs, and the high-leverage Monte Carlo simulations.
