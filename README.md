@@ -1,7 +1,7 @@
 # Systematic Trading Research & Bias Auditing
 
 ## 1. Introduction: What is this project?
-This repository contains a complete, end-to-end quantitative trading system designed to compound a micro-account ($500) into a target threshold ($10,000) using high-leverage derivatives. Originally built for crypto perpetual futures and later adapted for the Indian Nifty 50 index, the project focuses heavily on solving the "gravity well" problem of small accounts. It provides a complete mathematical blueprint for generating short-term alpha while strictly managing the risk of ruin.
+This repository contains a complete, end-to-end quantitative trading system designed to compound a micro-account ($500) into a target threshold ($10,000) using high-leverage derivatives. Originally built and calibrated on highly volatile **Crypto Perpetual Futures** to maximize trade frequency, the mathematical infrastructure and DCA grid logic apply seamlessly to traditional indices like the **S&P 500 (ES Futures)** and the Nifty 50. This project provides a complete mathematical blueprint for generating short-term alpha while strictly managing the risk of ruin.
 
 ## 2. How It Works: The Trading Mechanics
 The system is built on an **Intraday Mean-Reversion** model that fades over-extended price movements.
@@ -38,7 +38,10 @@ After removing all look-ahead biases and simulating worst-case execution frictio
 
 ## Repository Structure
 
-*   `/crypto_project_archive/`: Contains the original BTC mean-reversion strategy, the rigorous bias-audit logs, and the high-leverage Monte Carlo simulations.
-*   `nifty_strategy_test.py`: The adapted intraday mean-reversion algorithm for the NSE Nifty 50 index.
-*   `nifty_monte_carlo.py`: Compounding simulation for INR capital under SEBI margin constraints.
-*   `phd_project_synthesis.md`: The definitive research paper summarizing the methodology, findings, and execution realities discovered during the project.
+*   `win_rate_optimizer.py` & `long_rate_optimizer.py`: The core Machine Learning classifiers and backtesters.
+*   `combined_scanner.py`: The concurrency execution engine that simulates the shared margin lock.
+*   `simulate_500_final.py`: The Kelly Criterion Monte Carlo compounding simulator.
+*   `phd_project_synthesis.md`: The definitive research paper summarizing the methodology and findings.
+*   `/adaptations/`: Contains adaptations of the algorithm for traditional indices (like the Nifty 50).
+*   `/legacy_experiments/`: Contains older exploratory scripts, leverage sweeps, and legacy options strategies.
+*   `/crypto_project_archive/`: A complete backup of the early research phases.
