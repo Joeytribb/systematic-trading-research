@@ -25,10 +25,10 @@ Email: iniyandrews@gmail.com | [LinkedIn](https://www.linkedin.com/in/iniyandrew
 
 **Systematic Trading Research & Bias Auditing** | *[View on GitHub](https://github.com/Joeytribb/systematic-trading-research)*
 *Independent Quantitative Researcher* | Python, pandas, scikit-learn
-*   Developed a fully automated intraday mean-reversion algorithmic trading system targeting highly-leveraged crypto perpetual futures and Nifty 50/S&P 500 index futures.
-*   **Zero-Bias Engine:** Mathematically identified and eliminated 15 systemic backtest biases and 2 look-ahead bugs (including threshold contamination and limit-order execution gaps) to ensure institutional-grade out-of-sample realism.
-*   **Execution Modeling:** Hardcoded strict market microstructure friction into the backtester, including worst-case wick fills, exchange maker/taker fees, and dynamic order-book slippage curves.
-*   **Risk Management:** Applied Kelly Criterion approximations within a 50,000-path Monte Carlo engine to map the exact probability of ruin, formulating a two-stage risk-ratchet that compounded capital with a mathematically verified 0.02% ruin risk.
+*   **Engineered a zero-bias intraday mean-reversion trading system** capable of compounding a $500 micro-account to $10,000 in a mathematically verified 6.3-month median timeframe (0.02% risk of ruin).
+*   **Zero-Bias Execution Architecture:** Identified and eliminated 15 systemic backtest biases and 2 look-ahead bugs (including threshold contamination and same-candle gap fills), dropping naive win-rates from 92% to a highly realistic, out-of-sample 64.25% (+1.69% EV per trade).
+*   **Execution Friction & Limits:** Hardcoded worst-case market microstructure friction into the backtester (exchange fees, funding rate drag, and dynamic order-book slippage), analytically proving the strategy caps at ~$541,500 before slippage negates the edge.
+*   **Stochastic Sizing:** Applied Kelly Criterion approximations within a 50,000-path Monte Carlo engine to map the exact probability of ruin, formulating a two-stage risk-ratchet.
 
 **Short-Term Stock Prediction: Supervised Learning (Project HOPE)** | *[View on GitHub](https://github.com/Joeytribb/HOPE)*
 *Lead Researcher* | Python, Scikit-Learn, LSTM, TensorFlow
